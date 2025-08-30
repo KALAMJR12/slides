@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Dev Workshop - Session 1</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #f4f6f9;
+      color: #333;
+    }
+    .slide {
+      min-height: 100vh;
+      padding: 50px;
+      box-sizing: border-box;
+      border-bottom: 2px solid #ddd;
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    pre {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .speaker-notes {
+      background: #ecf0f1;
+      padding: 10px;
+      margin-top: 15px;
+      border-left: 5px solid #27ae60;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Slide 1 -->
+  <section class="slide">
+    <h1>Welcome to Talents Hive Workshop</h1>
+    <p>Build InstiOLX (mini OLX clone)</p>
+    <ul>
+      <li>Learn HTML + CSS step by step</li>
+      <li>Use SPCK (Android) or VS Code (PC)</li>
+      <li>Today: Structure + Styling</li>
+      <li>Next: JavaScript (interactivity)</li>
+    </ul>
+    <div class="speaker-notes">
+      Welcome everyone! By the end of this, you’ll have your own OLX-like mini website. Today we’ll focus on HTML & CSS, next time: JavaScript.
+    </div>
+  </section>
+
+  <!-- Slide 2 -->
+  <section class="slide">
+    <h2>Intro to HTML</h2>
+    <p><b>HTML = HyperText Markup Language</b></p>
+    <ul>
+      <li>Structures content on the web</li>
+      <li>Uses <code>&lt;tags&gt;</code> like <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;div&gt;</code></li>
+    </ul>
+    <pre><code>&lt;p&gt;Hello World!&lt;/p&gt;</code></pre>
+    <div class="speaker-notes">
+      HTML is markup, not programming. Tags come in pairs. Here, &lt;p&gt; defines a paragraph.
+    </div>
+  </section>
+
+  <!-- Slide 3 -->
+  <section class="slide">
+    <h2>HTML Boilerplate</h2>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;InstiOLX&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Welcome to InstiOLX&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    <div class="speaker-notes">
+      Boilerplate is the skeleton of every webpage. Head = backstage, Body = stage.
+    </div>
+  </section>
+
+  <!-- Slide 4 -->
+  <section class="slide">
+    <h2>Header & Navbar</h2>
+    <pre><code>&lt;header&gt;
+  &lt;div id="logo"&gt;InstiOLX&lt;/div&gt;
+  &lt;nav&gt;
+    &lt;a href="#"&gt;Home&lt;/a&gt;
+    &lt;a href="#"&gt;Categories&lt;/a&gt;
+    &lt;a href="#"&gt;Login&lt;/a&gt;
+    &lt;a href="#"&gt;Sell&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+    <div class="speaker-notes">
+      The logo is text for now. Each nav link is an &lt;a&gt; tag.
+    </div>
+  </section>
+
+  <!-- Slide 5 -->
+  <section class="slide">
+    <h2>Banner Image</h2>
+    <pre><code>&lt;section class="banner"&gt;
+  &lt;img src="banner.jpg" alt="welcome banner"&gt;
+&lt;/section&gt;</code></pre>
+    <div class="speaker-notes">
+      Every marketplace site has a banner image. The alt helps accessibility.
+    </div>
+  </section>
+
+  <!-- Slide 6 -->
+  <section class="slide">
+    <h2>Search Bar</h2>
+    <pre><code>&lt;div class="search-bar"&gt;
+  &lt;input type="text" placeholder="Search products..." required&gt;
+  &lt;button&gt;Search&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+    <div class="speaker-notes">
+      Inputs capture text. Buttons trigger actions (later with JavaScript).
+    </div>
+  </section>
+
+  <!-- Slide 7 -->
+  <section class="slide">
+    <h2>Welcome Text</h2>
+    <pre><code>&lt;div class="welcome"&gt;
+  &lt;h2&gt;Discover amazing products at unbeatable prices!&lt;/h2&gt;
+&lt;/div&gt;</code></pre>
+    <div class="speaker-notes">
+      A simple div with heading text for styling.
+    </div>
+  </section>
+
+  <!-- Slide 8 -->
+  <section class="slide">
+    <h2>Slideshow</h2>
+    <pre><code>&lt;div class="slideshow"&gt;
+  &lt;div class="slide image1"&gt;&lt;/div&gt;
+  &lt;div class="slide image2"&gt;&lt;/div&gt;
+  &lt;div class="slide image3"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    <pre><code>/* CSS */
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  opacity: 0;
+  animation: fade 9s infinite;
+}</code></pre>
+    <div class="speaker-notes">
+      Pure CSS slideshow. Each slide is a background image fading in/out.
+    </div>
+  </section>
+
+  <!-- Slide 9 -->
+  <section class="slide">
+    <h2>Product Grid</h2>
+    <pre><code>&lt;div class="product-grid"&gt;
+  &lt;div class="product-card"&gt;
+    &lt;img src="product1.jpg" alt="Product 1"&gt;
+    &lt;h3&gt;Product 1&lt;/h3&gt;
+    &lt;p&gt;$20&lt;/p&gt;
+    &lt;button&gt;Add to Cart&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    <pre><code>/* CSS */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}</code></pre>
+    <div class="speaker-notes">
+      CSS Grid arranges items in rows/columns that adjust automatically.
+    </div>
+  </section>
+
+  <!-- Slide 10 -->
+  <section class="slide">
+    <h2>Footer</h2>
+    <pre><code>&lt;footer&gt;
+  &lt;p&gt;© Developed by Talents Hive&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+    <div class="speaker-notes">
+      Footers usually have links, contact, policies. Keep them simple.
+    </div>
+  </section>
+
+  <!-- Slide 11 -->
+  <section class="slide">
+    <h2>Recap + Homework</h2>
+    <ul>
+      <li>HTML boilerplate</li>
+      <li>Header + Navbar</li>
+      <li>Banner + Search</li>
+      <li>Product Grid</li>
+      <li>Footer</li>
+    </ul>
+    <h3>Homework:</h3>
+    <ul>
+      <li>Create a Sell Form for the Sell button</li>
+      <li>Add a Cart link in navbar</li>
+      <li>Prepare for JavaScript in Session 2</li>
+    </ul>
+    <div class="speaker-notes">
+      Encourage students to practice by building the Sell form and Cart link.
+    </div>
+  </section>
+
+</body>
+</html>
